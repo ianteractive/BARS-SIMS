@@ -31,4 +31,9 @@ public class BarController {
         return drinkService.getAllDrinks();
     }
 
+    @GetMapping("/drinks/{id}")
+    public Drink getDrinksById(@PathVariable Integer id){
+        return drinkService.getDrinksById(id);
+    }
+
 }

@@ -18,4 +18,9 @@ public class DrinkService {
     public List<Drink> getAllDrinks(){
         return drinkRepository.findAll();
     }
+
+    public Drink getDrinksById(Integer id) {
+        return drinkRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Drink ID " + id + " not found."));
+    }
 }
