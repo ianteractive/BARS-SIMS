@@ -22,7 +22,7 @@ public class Drink {
     private String name;
 
     private Double price;
-    private int stock;
+    private Integer stock;
 
 
 }
