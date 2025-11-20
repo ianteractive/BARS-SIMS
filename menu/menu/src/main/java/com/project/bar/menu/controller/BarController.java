@@ -4,6 +4,7 @@ import com.project.bar.menu.model.Drink;
 import com.project.bar.menu.service.BarService;
 import com.project.bar.menu.service.DrinkService;
 import com.project.bar.menu.service.FileService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -34,6 +35,18 @@ public class BarController {
     @GetMapping("/drinks/{id}")
     public Drink getDrinksById(@PathVariable Integer id){
         return drinkService.getDrinksById(id);
+    }
+
+    @PostMapping("/drinks/add")
+    public ResponseEntity<String> addDrink(@RequestBody Drink drink){
+        drinkService.addNewDrink(drink);
+        return ResponseEntity.ok("Drink added successfully.");
+    }
+
+    @PutMapping("/drinks/update/{id}")
+    public ResponseEntity<String> updateDrink(@PathVariable Integer id, @RequestBody Drink drink){
+        drinkService.updateDrinkById(id, drink);
+        return ResponseEntity.ok("Drink with ID " + id +" updated successfully.");
     }
 
 }

@@ -23,4 +23,25 @@ public class DrinkService {
         return drinkRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Drink ID " + id + " not found."));
     }
+
+    public void addNewDrink(Drink drink) {
+        drinkRepository.save(drink);
+    }
+
+    public void updateDrinkById(Integer id, Drink drink) {
+        Drink updateDrink = drinkRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Drink ID " + id + " not found."));
+
+        if(drink.getName() != null){
+            updateDrink.setName(drink.getName());
+        }
+        if(drink.getPrice() != null){
+            updateDrink.setPrice(drink.getPrice());
+        }
+        if(drink.getStock() != null){
+            updateDrink.setStock(drink.getStock());
+        }
+
+        drinkRepository.save(updateDrink);
+    }
 }
