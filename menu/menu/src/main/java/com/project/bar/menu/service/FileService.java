@@ -31,7 +31,9 @@ public class FileService {
     public String processOrderFile(MultipartFile file) {
         List<OrderItem> items = new ArrayList<>();
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(file.getInputStream()))){
+
             String line;
+
             while((line = reader.readLine()) != null){
                 //format: drinkId, quantity
                 String[] data = line.split(",");
