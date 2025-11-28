@@ -49,4 +49,10 @@ public class BarController {
         return ResponseEntity.ok("Drink with ID " + id +" updated successfully.");
     }
 
+    @DeleteMapping("/drinks/delete/{id}")
+    public ResponseEntity<String> deleteDrinkById(@PathVariable Integer id){
+         drinkService.deleteDrinkById(id);
+         return ResponseEntity.ok("Deleted successfully!");
+    }
+
 }

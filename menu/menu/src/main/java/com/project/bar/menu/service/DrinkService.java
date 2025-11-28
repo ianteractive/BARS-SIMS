@@ -44,4 +44,8 @@ public class DrinkService {
 
         drinkRepository.save(updateDrink);
     }
+
+    public void deleteDrinkById(Integer id) {
+         drinkRepository.deleteById(id);
+    }
 }
