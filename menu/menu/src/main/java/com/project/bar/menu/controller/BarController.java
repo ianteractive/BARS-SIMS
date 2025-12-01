@@ -27,32 +27,4 @@ public class BarController {
         return "Report generated at " + fileService.processOrderFile(file);
     }
 
-    @GetMapping("/drinks")
-    public List<Drink> getAllDrinks(){
-        return drinkService.getAllDrinks();
-    }
-
-    @GetMapping("/drinks/{id}")
-    public Drink getDrinksById(@PathVariable Integer id){
-        return drinkService.getDrinksById(id);
-    }
-
-    @PostMapping("/drinks/add")
-    public ResponseEntity<String> addDrink(@RequestBody Drink drink){
-        drinkService.addNewDrink(drink);
-        return ResponseEntity.ok("Drink added successfully.");
-    }
-
-    @PutMapping("/drinks/update/{id}")
-    public ResponseEntity<String> updateDrink(@PathVariable Integer id, @RequestBody Drink drink){
-        drinkService.updateDrinkById(id, drink);
-        return ResponseEntity.ok("Drink with ID " + id +" updated successfully.");
-    }
-
-    @DeleteMapping("/drinks/delete/{id}")
-    public ResponseEntity<String> deleteDrinkById(@PathVariable Integer id){
-         drinkService.deleteDrinkById(id);
-         return ResponseEntity.ok("Deleted successfully!");
-    }
-
 }
